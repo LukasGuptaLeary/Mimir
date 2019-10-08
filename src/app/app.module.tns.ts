@@ -24,7 +24,6 @@ import { BubbleContainerComponent } from '@src/app/bubble-container/bubble-conta
   imports: [
     NativeScriptModule,
     AppRoutingModule,
-    NativeScriptBottomNavigationBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
