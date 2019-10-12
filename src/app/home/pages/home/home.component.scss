@@ -1,0 +1,15 @@
+main {
+  grid-template-rows: auto 1fr;
+  padding: 24px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  padding-right: 24px;
+  width: 100%;
+
+  input {
+    flex: 1;
+  }
+}

@@ -1,1 +1,63 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+$mimir-green: (
+        400: #65ff66,
+        500: #00d831,
+        600: #00a500,
+        contrast: (
+                400: $dark-primary-text,
+                500: $dark-primary-text,
+                600: $dark-primary-text
+        )
+);
+
+$mimir-blue: (
+        400: #5c96ff,
+        500: #0069cb,
+        600: #003f99,
+        contrast: (
+                400: $dark-primary-text,
+                500: $light-primary-text,
+                600: $light-primary-text
+        )
+);
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$mimir-primary: mat-palette($mimir-green, 500, 400, 600);
+$mimir-accent: mat-palette($mimir-blue, 500, 400, 600);
+
+// The warn palette is optional (defaults to red).
+$mimir-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$mimir-theme: mat-light-theme($mimir-primary, $mimir-accent, $mimir-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($mimir-theme);
+
 /* You can add global styles to this file, and also import other style files */
+* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+}
+html, body { height: 100%; }
+body { font-family: Roboto, "Helvetica Neue", sans-serif; background: linear-gradient(180deg, #65ff66, #00a500); }
+main {
+        display: grid;
+        height: 100%;
+        grid-auto-rows: auto;
+}

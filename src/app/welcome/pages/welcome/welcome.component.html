@@ -1,0 +1,17 @@
+<main>
+    <div class='welcome-cell'>
+        <h1>Welcome to Mimir</h1>
+    </div>
+    <div class='welcome-cell'>
+        <mat-carousel [hideIndicators]="false" proportion="100">
+            <mat-carousel-slide [hideOverlay]="true" *ngFor="let item of items">
+                <div class="welcome-cell">
+                    <div class="carousel-item-circle">&#xf19c;</div>
+                </div>
+            </mat-carousel-slide>
+        </mat-carousel>
+    </div>
+    <div class='welcome-cell'>
+        <a mat-raised-button routerLink="/auth">Get Started</a>
+    </div>
+</main>

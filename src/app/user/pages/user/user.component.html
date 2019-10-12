@@ -1,0 +1,24 @@
+<mat-drawer-container>
+    <mat-drawer #drawer>
+        <aside>
+
+        </aside>
+    </mat-drawer>
+    <mat-drawer-content>
+        <header>
+            <mat-toolbar><button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button> Mimir</mat-toolbar>
+        </header>
+
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+
+        <footer>
+            <mat-toolbar>
+                <button mat-button color="accent"><mat-icon>home</mat-icon></button>
+                <button mat-button color="accent"><mat-icon>person</mat-icon></button>
+                <button mat-button color="accent"><mat-icon>star</mat-icon></button>
+            </mat-toolbar>
+        </footer>
+    </mat-drawer-content>
+</mat-drawer-container>

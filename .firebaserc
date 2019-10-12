@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mimir-cd0bd": {
+      "hosting": {
+        "mimir": [
+          "mimir-cd0bd"
+        ]
+      }
+    }
+  }
+}
