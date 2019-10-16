@@ -13,9 +13,22 @@
 
         <p>This is the primary content of the panel.</p>
 
+
+
     </mat-expansion-panel>
 
-    <div>
+    <div class="grid">
+          <div style="margin: 25px 25px 25px">
+            <ul>
+              <li *ngfor="let recipe of recipes" [recipe]="recipe">
+                <Image>{{recipe.image}}</Image>
+                <Label>{{recipe.name}}</Label>
+
+              </li>
+            </ul>
+
+          </div>
+
 
     </div>
 </main>
