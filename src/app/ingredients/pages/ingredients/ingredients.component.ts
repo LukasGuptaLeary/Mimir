@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IngredientsComponent implements OnInit {
 
-  items = [1, 2, 3];
-
   constructor() { }
 
   ngOnInit() {
