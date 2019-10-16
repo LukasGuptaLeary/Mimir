@@ -13,7 +13,7 @@ export const RECIPES: Recipe[] = [
       '\n\n' +
       'Whether you are camping or staying in a hotel, don’t forget to spend some time looking up at the sky ' +
       'after night falls. You’ll find some of the darkest skies in and around Utah’s national parks.',
-    image: 'C:\Users\Tobiz\WebstormProjects\Mimir\Mimir\src\assets\icons\icon-512x512.png',
+    image: '/assets/icons/icon-512x512.png',
     likes: 245,
     comments: 23
   },
@@ -38,7 +38,7 @@ export const RECIPES: Recipe[] = [
       'meadows and lakes. Its diverse habitats are home to over 70 species of mammals and over 260 species of birds. ' +
       'The spectacular glaciated landscape is a hiker’s paradise, containing 700 miles of maintained trails that lead ' +
       'deep into one of the largest intact ecosystems in the lower 48 states.',
-    image: 'C:\\Users\\Tobiz\\WebstormProjects\\Mimir\\Mimir\\src\\assets\\icons\\icon-512x512.png',
+    image: '/assets/icons/icon-512x512.png',
     likes: 152,
     comments: 16
   },
@@ -63,7 +63,7 @@ export const RECIPES: Recipe[] = [
       'in the canyons and buttes, along with mule deer, kangaroo rats, and coyote. Look up for red- tailed hawks, and at night, ' +
       'for one of the darkest skies in the Lower 48. On a moonless night, get more than your fill of stars - or get out the ' +
       'binoculars to try for the rings of Saturn.',
-    image: 'C:\\Users\\Tobiz\\WebstormProjects\\Mimir\\Mimir\\src\\assets\\icons\\icon-512x512.png',
+    image: '/assets/icons/icon-512x512.png',
     likes: 385,
     comments: 31
   },
@@ -83,7 +83,7 @@ export const RECIPES: Recipe[] = [
       'One of the most exciting ways to experience the Grand Canyon is to float through it by way of raft on the Colorado River. ' +
       'Most people book their trip with a commercial outfitter and you can even combine the rafting trip with a helicopter ride. ' +
       'Experienced whitewater rafter? Enter the lottery to do your own trip.',
-    image: 'C:\\Users\\Tobiz\\WebstormProjects\\Mimir\\Mimir\\src\\assets\\icons\\icon-512x512.png',
+    image: '/assets/icons/icon-512x512.png',
     likes: 514,
     comments: 49
   },
@@ -99,7 +99,7 @@ export const RECIPES: Recipe[] = [
       'for everyone at Bryce Canyon. Our favorite easy hikes include Bristlecone Loop Trail and Queens Garden Trail. ' +
       'Hat Shop is our favorite moderate hike. For more physically fit hikers looking for a strenuous adventure, ' +
       'do the 5.5-mile vertically challenging Peek-A-Boo Loop or the 7.9 Fairyland Loop rated “difficult” by the park service. ',
-    image: 'C:\\Users\\Tobiz\\WebstormProjects\\Mimir\\Mimir\\src\\assets\\icons\\icon-512x512.png',
+    image: '/assets/icons/icon-512x512.png',
     likes: 245,
     comments: 11
   },
@@ -120,7 +120,7 @@ export const RECIPES: Recipe[] = [
       'one of the nation\'s most awe-inspiring landscapes. In addition to gazing at the incredible views, there is much to do ' +
       'in this park from hiking and rock climbing to boating and fishing. And when you need a break from outdoor adventure, ' +
       'there are few better places to simply relax and watch the park\'s incredible wildlife.',
-    image: 'C:\\Users\\Tobiz\\WebstormProjects\\Mimir\\Mimir\\src\\assets\\icons\\icon-512x512.png',
+    image: '/assets/icons/icon-512x512.png',
 
     likes: 169,
     comments: 7
@@ -146,7 +146,7 @@ export const RECIPES: Recipe[] = [
       'At the Ben Reifel Visitor Center, kids can use a touchscreen to assemble a virtual skeleton and ' +
       'touch fossilized animal replicas. You also can watch the film Land of Stone and Light in ' +
       'the center’s 95-seat air-conditioned theater.',
-    image: 'C:\\Users\\Tobiz\\WebstormProjects\\Mimir\\Mimir\\src\\assets\\icons\\icon-512x512.png',
+    image: '/assets/icons/icon-512x512.png',
     likes: 227,
     comments: 26
   }
