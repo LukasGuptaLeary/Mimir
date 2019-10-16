@@ -15,7 +15,20 @@ form {
 }
 
 .grid{
-  margin: 200px 500px 75 px;
-  background-color: lightslategrey;
+  padding-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 24px;
 
+  mat-card {
+    mat-card-content {
+      height: 150px;
+      overflow: hidden;
+    }
+    mat-card-header {
+      ::ng-deep.mat-card-header-text {
+        margin: 0;
+      }
+    }
+  }
 }

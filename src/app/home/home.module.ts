@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './pages/home/home.component';
-import {MaterialModulesModule} from '../material-modules/material-modules.module';
-import {FormsModule} from "@angular/forms";
+import { MaterialModulesModule } from '../material-modules/material-modules.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import {FormsModule} from "@angular/forms";
     CommonModule,
     HomeRoutingModule,
     MaterialModulesModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }
