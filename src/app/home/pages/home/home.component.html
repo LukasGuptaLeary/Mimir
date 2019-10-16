@@ -1,19 +1,32 @@
 <main>
     <mat-expansion-panel>
+
         <mat-expansion-panel-header>
-            <form>
-                <mat-form-field floatLabel="never">
-                    <input matInput type="search" placeholder="Item search">
-                </mat-form-field>
-                <button mat-icon-button>
-                    <mat-icon>search</mat-icon>
-                </button>
-            </form>
+            <mat-panel-title style="font-size: 16px;">Your Cutting Board</mat-panel-title>
         </mat-expansion-panel-header>
 
-        <p>This is the primary content of the panel.</p>
+        <form [formGroup]="addIngredientsFormGroup" (ngSubmit)="addIngredient()">
+            <mat-form-field floatLabel="never">
+                <input formControlName="ingredient" matInput type="text" placeholder="Add ingredients here" autocomplete="off">
+            </mat-form-field>
+            <button mat-button color="accent">
+                <mat-icon>add</mat-icon>
+                ADD INGREDIENT
+            </button>
+        </form>
 
-
+        <div *ngIf="ingredients.length > 0" class="grid ingredients-grid">
+            <mat-card *ngFor="let ingredient of ingredients">
+                <mat-card-header>
+                    <mat-card-title>
+                        <strong>{{ingredient}}</strong>
+                        <button (click)="deleteIngredient(ingredient)" color="warn" mat-icon-button>
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-card-title>
+                </mat-card-header>
+            </mat-card>
+        </div>
 
     </mat-expansion-panel>
 

@@ -1,34 +1,73 @@
+@import "../../../../media-breakpoint";
+
 main {
   grid-template-rows: auto 1fr;
+  grid-gap: 24px;
   padding: 24px;
 }
 
 form {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  padding-right: 24px;
   width: 100%;
 
-  input {
-    flex: 1;
+  mat-form-field {
+    padding-right: 12px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ::ng-deep .mat-button-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 
 .grid {
-  padding-top: 24px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 24px;
 
   mat-card {
     mat-card-content {
-      height: 150px;
+      height: 198px;
+      padding-top: 12px;
       overflow: hidden;
     }
     mat-card-header {
       ::ng-deep.mat-card-header-text {
         margin: 0;
+        width: 100%;
+      }
+
+      mat-card-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+        width: 100%;
       }
     }
   }
 }
+
+.ingredients-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+}
+
+@include media-breakpoint-down(sm) {
+  form {
+    grid-template-columns: 1fr;
+
+    mat-form-field {
+      padding-right: 0;
+    }
+  }
+}
+
