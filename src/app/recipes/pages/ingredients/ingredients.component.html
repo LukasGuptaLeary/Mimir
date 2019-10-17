@@ -8,8 +8,14 @@
       <header>
           <mat-toolbar><button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button> Mimir</mat-toolbar>
       </header>
-
+      
       <div>
+        <h2>
+          Ingredients
+        </h2>
+        <ul class="ingredient-list">
+            <li *ngFor="let ingredient of ingredients">{{ ingredient }}</li>
+        </ul>
       </div>
 
       <footer>

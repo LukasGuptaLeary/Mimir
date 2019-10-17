@@ -20,3 +20,14 @@ footer mat-toolbar {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
+
+.ingredient-list {
+  list-style-type: circle;
+  border: 2px solid #65ff66;
+}
+
+li {
+  padding: 5px 10px;
+  background-color: #EEEEEE;
+  border: 1px solid #DDDDDD;
+}
