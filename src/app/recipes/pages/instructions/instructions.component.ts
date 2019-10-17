@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-instructions',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./instructions.component.scss']
 })
 export class InstructionsComponent implements OnInit {
+  
+  recipeUrl: SafeResourceUrl;
 
-  constructor() { }
+  constructor (public sanitizer:DomSanitizer) {
+
+  }
 
   ngOnInit() {
+    this.recipeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.google.com');
   }
 
 }

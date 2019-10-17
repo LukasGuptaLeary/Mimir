@@ -9,7 +9,9 @@
           <mat-toolbar><button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button> Mimir</mat-toolbar>
       </header>
 
-      <div>
+      <div class="web-view">
+          <iframe [src]="recipeUrl" allowfullscreen></iframe>
+          <!-- <iframe src="https://www.google.com" allowfullscreen></iframe> -->
       </div>
 
       <footer>
