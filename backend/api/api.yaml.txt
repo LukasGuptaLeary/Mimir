@@ -13,7 +13,7 @@
 #
 # [START runtime]
 runtime: nodejs10
-service: default
+service: api
 handlers:
   - url: /.*
     script: auto

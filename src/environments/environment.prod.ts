@@ -8,5 +8,6 @@ export const environment = {
     storageBucket: 'mimir-cd0bd.appspot.com',
     messagingSenderId: '652606768846',
     appId: '1:652606768846:web:2fa730ab4ffa18bdc3729f'
-  }
+  },
+  apiUrl: 'https://api-dot-mimir-cd0bd.appspot.com/'
 };
