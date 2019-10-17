@@ -153,6 +153,20 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {}
+        },
+        "app-shell": {
+          "builder": "@angular-devkit/build-angular:app-shell",
+          "options": {
+            "browserTarget": "mimir:build",
+            "serverTarget": "mimir:server",
+            "route": "shell"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mimir:build:production",
+              "serverTarget": "mimir:server:production"
+            }
+          }
         }
       }
     }

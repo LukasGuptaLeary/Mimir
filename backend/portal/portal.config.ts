@@ -1,1 +1,1 @@
-export const MAIN_PORTAL_HOST = 'mimir-cd0bd.appspot.com';
+export const MAIN_PORTAL_HOST = 'https://mimir-cd0bd.appspot.com/';

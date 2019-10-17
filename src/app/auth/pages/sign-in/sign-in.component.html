@@ -1,26 +1,26 @@
 <main>
     <mat-tab-group headerPosition="below" backgroundColor="accent">
         <mat-tab label="Login">
-            <form>
+            <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
                 <mat-form-field>
-                    <input matInput placeholder="Email">
+                    <input matInput formControlName="email" placeholder="Email">
                 </mat-form-field>
                 <mat-form-field>
-                    <input matInput placeholder="Password">
+                    <input matInput type="password" formControlName="password" placeholder="Password">
                 </mat-form-field>
-                <button mat-raised-button routerLink="/user">Submit</button>
+                <button mat-raised-button>Submit</button>
             </form>
         </mat-tab>
         <mat-tab label="Sign Up">
-            <form>
+            <form [formGroup]="signUpFormGroup" (ngSubmit)="signUp()">
                 <mat-form-field>
-                    <input matInput placeholder="Email">
+                    <input matInput formControlName="email" placeholder="Email">
                 </mat-form-field>
                 <mat-form-field>
-                    <input matInput placeholder="Password">
+                    <input matInput type="password" formControlName="password" placeholder="Password">
                 </mat-form-field>
                 <mat-form-field>
-                    <input matInput placeholder="Confirm Password">
+                    <input matInput type="password" formControlName="confirmPassword" placeholder="Confirm Password">
                 </mat-form-field>
                 <button mat-raised-button>Submit</button>
             </form>

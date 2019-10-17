@@ -1,31 +1,22 @@
 import 'zone.js/dist/zone-node';
+
+import * as express from 'express';
 import 'reflect-metadata';
 
 // DOM libs required for Firebase
 (global as any).WebSocket = require('ws');
 (global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
-import {enableProdMode} from '@angular/core';
-// Express Engine
-import {ngExpressEngine} from '@nguniversal/express-engine';
-// Import module map for lazy loading
-import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
-
-import * as express from 'express';
 import {join} from 'path';
-import {MAIN_PORTAL_HOST} from './portal.config';
-
-// Faster server renders w/ Prod mode (dev mode never needed)
-enableProdMode();
 
 // Express server
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-const DIST_FOLDER = join(__dirname, 'browser');
+const DIST_FOLDER = join(process.cwd(), 'browser');
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./server/main');
+const {AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModuleMap} = require('./dist/server/main');
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
@@ -35,21 +26,11 @@ app.engine('html', ngExpressEngine({
     ]
 }));
 
-app.set('trust proxy', true);
-
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
 
-if (process.env.NODE_ENV === 'production') {
-    app.use((req, res, next) => {
-        if (req.headers.host === MAIN_PORTAL_HOST) {
-            next();
-        } else {
-            res.redirect('https://' + MAIN_PORTAL_HOST);
-        }
-    });
-}
-
+// Example Express Rest API endpoints
+// app.get('/api/**', (req, res) => { });
 // Serve static files from /browser
 app.get('*.*', express.static(DIST_FOLDER, {
     maxAge: '1y'
