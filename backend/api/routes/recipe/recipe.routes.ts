@@ -1,6 +1,6 @@
 import * as express from 'express';
-import Axios from "axios";
-import {EDAMAM_API_KEY, EDAMAM_APP_ID} from "../../api.config";
+import Axios from 'axios';
+import {EDAMAM_API_KEY, EDAMAM_APP_ID} from '../../api.config';
 
 export const recipeRouter = express.Router();
 

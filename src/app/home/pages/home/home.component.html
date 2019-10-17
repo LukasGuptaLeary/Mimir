@@ -31,20 +31,18 @@
     </mat-expansion-panel>
 
     <div class="grid">
-        <mat-card *ngFor="let recipe of recipes">
+        <mat-card *ngFor="let recipe of recipes$ | async">
             <img mat-card-image [src]="recipe.image" alt="Recipe Photo">
             <mat-card-header>
-                <mat-card-title>{{recipe.title}}</mat-card-title>
-<!--                <mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
+                <mat-card-title>{{recipe.label}}</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <p>
-                    {{recipe.description}}
+
                 </p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-button>LIKE {{recipe.likes}}</button>
-                <button mat-button>START RECIPE</button>
+                <button [routerLink]="['/user', 'recipe', getRecipeIDFromURI(recipe.uri), 'ingredients']" mat-button>START RECIPE</button>
             </mat-card-actions>
         </mat-card>
     </div>

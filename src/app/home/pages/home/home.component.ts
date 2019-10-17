@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { RECIPES } from './mock-recipe';
 import { FormControl, FormGroup } from '@angular/forms';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {filter, map} from 'rxjs/operators';
+import {RecipeSearchModel} from '../../../shared/models/recipe-search.model';
+import {RecipeModel} from '../../../shared/models/recipe.model';
+import {RecipeService} from '../../../shared/recipe.service';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +13,26 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  recipes = RECIPES;
+  recipeSearch$ = new BehaviorSubject<RecipeSearchModel>(null);
+  recipes$: Observable<RecipeModel[]>;
+
   ingredients = [];
 
   addIngredientsFormGroup = new FormGroup({
     ingredient: new FormControl(null, [])
   });
 
-  constructor() { }
+  constructor(
+      private recipeService: RecipeService
+  ) { }
 
   ngOnInit() {
+    this.recipes$ = this.recipeSearch$.pipe(
+        filter(value => !(!value)),
+        map(recipeSearch => {
+          return recipeSearch.hits.map(r => r.recipe);
+        })
+    );
   }
 
   addIngredient() {
@@ -30,9 +44,24 @@ export class HomeComponent implements OnInit {
       }
       ingredient.reset();
     }
+
+    this.getRecipes();
   }
 
   deleteIngredient(ingredient: string) {
     this.ingredients = this.ingredients.filter(i => i !== ingredient);
+
+    this.getRecipes();
+  }
+
+  getRecipes() {
+    this.recipeService.recipeSearch(this.ingredients.join(',')).subscribe(recipeSearch => {
+      this.recipeSearch$.next(recipeSearch);
+    });
+  }
+
+  getRecipeIDFromURI(uri: string) {
+    const uriArray = uri.split('_');
+    return uriArray[uriArray.length - 1];
   }
 }

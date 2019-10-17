@@ -1,5 +1,5 @@
 import * as express from 'express';
-import {recipeRouter} from "./recipe/recipe.routes";
+import {recipeRouter} from './recipe/recipe.routes';
 
 export const routes = express.Router();
 
