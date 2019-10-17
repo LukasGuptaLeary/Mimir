@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { WelcomeRoutingModule } from './welcome-routing.module';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
-import {MatCarouselModule} from '@ngmodule/material-carousel';
-import {MaterialModulesModule} from '../material-modules/material-modules.module';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -12,7 +12,7 @@ import {MaterialModulesModule} from '../material-modules/material-modules.module
   imports: [
     CommonModule,
     WelcomeRoutingModule,
-    MaterialModulesModule,
+    SharedModule,
     MatCarouselModule.forRoot()
   ]
 })

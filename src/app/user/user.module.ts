@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './pages/user/user.component';
-import { MaterialModulesModule } from '../material-modules/material-modules.module';
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +11,7 @@ import { MaterialModulesModule } from '../material-modules/material-modules.modu
   imports: [
     CommonModule,
     UserRoutingModule,
-    MaterialModulesModule
+    SharedModule
   ]
 })
 export class UserModule { }

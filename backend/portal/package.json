@@ -4,7 +4,7 @@
   "description": "",
   "main": "portal.js",
   "scripts": {
-    "build": "webpack --config webpack.server.config.js --progress --colors && cp package.json dist/package.json && cp gcloudignore.txt dist/.gcloudignore",
+    "build": "tsc -p portal.tsconfig.json && cp app.yaml.txt dist/app.yaml && cp package.json dist/package.json && cp gcloudignore.txt dist/.gcloudignore",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node portal.js"
   },
@@ -40,8 +40,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.1",
-    "@types/node": "~8.9.4",
-    "webpack-cli": "^3.3.9"
+    "@types/node": "~8.9.4"
   },
   "author": "",
   "license": "ISC"

@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './pages/home/home.component';
-import { MaterialModulesModule } from '../material-modules/material-modules.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
@@ -12,9 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MaterialModulesModule,
-    FormsModule,
-    ReactiveFormsModule
+    SharedModule
   ]
 })
 export class HomeModule { }

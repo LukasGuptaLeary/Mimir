@@ -6,12 +6,14 @@ import { IngredientsComponent } from './pages/ingredients/ingredients.component'
 import { RecipeComponent } from './pages/recipe/recipe.component';
 import { InstructionsComponent } from './pages/instructions/instructions.component';
 import { ReviewComponent } from './pages/review/review.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [IngredientsComponent, RecipeComponent, InstructionsComponent, ReviewComponent],
   imports: [
     CommonModule,
-    RecipeRoutingModule
+    RecipeRoutingModule,
+    SharedModule
   ],
 })
 export class RecipeModule { }
