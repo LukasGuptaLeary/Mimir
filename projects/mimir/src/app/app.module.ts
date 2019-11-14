@@ -11,9 +11,10 @@ import { AngularFireModule} from '@angular/fire';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

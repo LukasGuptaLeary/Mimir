@@ -1,5 +1,8 @@
 <main>
-    <mat-expansion-panel [expanded]="true">
+
+    <mat-expansion-panel [expanded]="true" >
+
+
 
         <mat-expansion-panel-header>
             <mat-panel-title style="font-size: 16px;">Your Cutting Board</mat-panel-title>
@@ -29,6 +32,7 @@
         </div>
 
     </mat-expansion-panel>
+
 
     <div class="grid">
         <mat-card *ngFor="let recipe of recipes$ | async">

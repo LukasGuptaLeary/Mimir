@@ -61,6 +61,7 @@ form {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
 }
 
+
 @include media-breakpoint-down(sm) {
   form {
     grid-template-columns: 1fr;

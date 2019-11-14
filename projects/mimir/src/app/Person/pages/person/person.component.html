@@ -1,0 +1,19 @@
+<main>
+  <mat-card>
+    <mat-form-field>
+      <mat-label>Diet</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let diet of diets" [value]="diet.value">
+          {{diet.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Health</mat-label>
+      <mat-select [formControl]="health" multiple>
+        <mat-option *ngFor="let health of healths" [value]="health">{{health}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card>
+</main>
