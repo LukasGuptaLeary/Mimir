@@ -21,18 +21,15 @@ footer mat-toolbar {
   grid-gap: 16px;
 }
 
-.ingredient-list {
-  list-style-type: circle;
-}
-
 table {
   background-color: #00d831;
   color: #003f99;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 td {
   padding: 5px 10px;
-  background-color: #fff;
+  background-color: #eeeeee;
   border: 1px solid #0069cb;
   color: #003f99;
 }
@@ -48,4 +45,27 @@ td:hover {
 
 .rightmost-column {
   width: 99%;
+}
+
+.ingredient-list {
+  list-style-type: circle;
+}
+
+.recipe-transition {
+  align-items: center;
+  background-color: #eeeeee;
+  color: #0069cb;
+  display: flex;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  justify-content: center;
+  width: 100%;
+}
+
+.recipe-transition:hover {
+  background-color: #0069cb;
+  color: #eeeeee;
+}
+
+.recipe-nav {
+  display: inline-block;
 }
