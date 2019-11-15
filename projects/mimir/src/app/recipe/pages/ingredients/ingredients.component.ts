@@ -42,7 +42,3 @@ ngOnInit() {
 }
 
 }
-
-class IngredientList {
-
-}
