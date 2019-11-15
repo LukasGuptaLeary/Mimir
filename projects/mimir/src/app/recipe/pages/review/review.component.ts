@@ -31,7 +31,6 @@ export class ReviewComponent implements OnInit {
     if (rating.value) {
       this.ratings.pop();
       this.ratings.push(rating.value);
-      alert('Test');
     }
   }
 

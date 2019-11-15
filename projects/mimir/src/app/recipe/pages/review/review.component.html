@@ -9,12 +9,17 @@
 
 
             <form [formGroup]="addRatingsFormGroup" (ngSubmit)="addRating()">
-                <mat-radio-group formControlName="rating">
-                    <mat-radio-button class="star" name="rating" value="1 Star" >1 Star</mat-radio-button>
-                    <mat-radio-button class="star" name="rating" value="2 Stars" >2 Stars</mat-radio-button>
-                    <mat-radio-button class="star" name="rating" value="3 Stars" >3 Stars</mat-radio-button>
-                    <mat-radio-button class="star" name="rating" value="4 Stars" >4 Stars</mat-radio-button>
-                    <mat-radio-button class="star" name="rating" value="5 Stars" >5 Stars</mat-radio-button>
+                <mat-radio-group class="starGroup" formControlName="rating">
+                    <label><mat-radio-button style="display: none;" id="star5" name="rating" value="5 stars" ></mat-radio-button>
+                        <span>☆</span></label>
+                    <label><mat-radio-button style="display: none;" id="star4" name="rating" value="4 stars" ></mat-radio-button>
+                        <span>☆</span></label>
+                    <label><mat-radio-button style="display: none;" id="star3" name="rating" value="3 stars" ></mat-radio-button>
+                        <span>☆</span></label>
+                    <label><mat-radio-button style="display: none;" id="star2" name="rating" value="2 stars" ></mat-radio-button>
+                        <span>☆</span></label>
+                    <label><mat-radio-button style="display: none;" id="star1" name="rating" value="1 star" ></mat-radio-button>
+                        <span>☆</span></label>
                 </mat-radio-group><br><br>
                 <button mat-button color="accent">+ SUBMIT RATING</button>
             </form>

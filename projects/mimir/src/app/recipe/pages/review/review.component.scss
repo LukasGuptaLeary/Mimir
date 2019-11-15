@@ -1,3 +1,38 @@
+main {
+  grid-template-rows: auto 1fr;
+  grid-gap: 24px;
+  padding: 24px;
+}
+
+.starGroup{
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.starGroup > label{
+  display: inline-block;
+  position: relative;
+  width: 3em;
+}
+
+.starGroup label span{
+  color: lightgray;
+  font-size: 40px;
+}
+
+.starGroup > label:hover:before,
+.starGroup > label:hover ~ label:before{
+  color: orange;
+  content: "\2605";
+  position: absolute;
+  font-size: 40px;
+  text-shadow: 1px 1px black;
+}
+
+.starRating > input:checked ~ label {
+  color: orange;
+}
+
 mat-radio-button{
   margin-right: 2%;
   margin-left: 1%;
@@ -8,6 +43,7 @@ mat-radio-button{
   margin-left: 1%;
   color: green;
   height: 20px;
+  text-shadow: 0.8px 0.8px lightgray;
 }
 
 .comDiv{
@@ -28,6 +64,13 @@ mat-radio-button{
 textarea{
   resize: none;
   margin-left: 1%;
+}
+
+[type=radio]{
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 mat-radio-group {
