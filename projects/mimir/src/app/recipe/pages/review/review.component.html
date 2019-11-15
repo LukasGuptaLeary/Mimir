@@ -1,50 +1,50 @@
 <main>
-    <mat-card>
+  <mat-card>
 
-        <div class="review">
-            <mat-card-header>
-                <mat-card-title>Rate this recipe!</mat-card-title>
-                <mat-card-subtitle>Help us recommend recipes for you by providing your feedback below.</mat-card-subtitle>
-            </mat-card-header>
+    <div class="review">
+      <mat-card-header>
+        <mat-card-title>Rate this recipe!</mat-card-title>
+        <mat-card-subtitle>Help us recommend recipes for you by providing your feedback below.</mat-card-subtitle>
+      </mat-card-header>
 
+      <div class="stars">
+        <form [formGroup]="addRatingsFormGroup" (ngSubmit)="addRating()">
+          <input class="star star-5" id="star-5" type="radio" name="rating" value="5 stars" formControlName="rating"/>
+          <label class="star star-5" for="star-5"></label>
+          <input class="star star-4" id="star-4" type="radio" name="rating" value="4 stars" formControlName="rating"/>
+          <label class="star star-4" for="star-4"></label>
+          <input class="star star-3" id="star-3" type="radio" name="rating" value="3 stars" formControlName="rating"/>
+          <label class="star star-3" for="star-3"></label>
+          <input class="star star-2" id="star-2" type="radio" name="rating" value="2 stars" formControlName="rating"/>
+          <label class="star star-2" for="star-2"></label>
+          <input class="star star-1" id="star-1" type="radio" name="rating" value="1 star" formControlName="rating"/>
+          <label class="star star-1" for="star-1"></label>
+          <button mat-button color="accent">+ SUBMIT RATING</button>
+        </form>
+      </div>
 
-            <form [formGroup]="addRatingsFormGroup" (ngSubmit)="addRating()">
-                <mat-radio-group class="starGroup" formControlName="rating">
-                    <label><mat-radio-button style="display: none;" id="star5" name="rating" value="5 stars" ></mat-radio-button>
-                        <span>☆</span></label>
-                    <label><mat-radio-button style="display: none;" id="star4" name="rating" value="4 stars" ></mat-radio-button>
-                        <span>☆</span></label>
-                    <label><mat-radio-button style="display: none;" id="star3" name="rating" value="3 stars" ></mat-radio-button>
-                        <span>☆</span></label>
-                    <label><mat-radio-button style="display: none;" id="star2" name="rating" value="2 stars" ></mat-radio-button>
-                        <span>☆</span></label>
-                    <label><mat-radio-button style="display: none;" id="star1" name="rating" value="1 star" ></mat-radio-button>
-                        <span>☆</span></label>
-                </mat-radio-group><br><br>
-                <button mat-button color="accent">+ SUBMIT RATING</button>
-            </form>
-            <div class="rateConfirm">
-                <p *ngFor="let rating of ratings">You gave this recipe {{rating}}.</p>
-            </div>
-        </div>
+      <div class="rateConfirm">
+        <p *ngFor="let rating of ratings">You gave this recipe {{rating}}.</p>
+      </div>
+    </div>
 
-        <div class="review">
-            <mat-card-header>
-                <mat-card-title>Leave a comment!</mat-card-title>
-                <mat-card-subtitle>Feel free to share your cooking experience with everyone.</mat-card-subtitle>
-            </mat-card-header>
+    <div class="review">
+      <mat-card-header>
+        <mat-card-title>Leave a comment!</mat-card-title>
+        <mat-card-subtitle>Feel free to share your cooking experience with everyone.</mat-card-subtitle>
+      </mat-card-header>
 
-            <form [formGroup]="addCommentsFormGroup" (ngSubmit)="addCom()">
-                <textarea formControlName="comment" cols="70" rows="5" placeholder="Enter your comments here and click the submit button when finished."></textarea><br>
-                <button mat-button color="accent">+ SUBMIT COMMENT</button>
-            </form>
-        </div>
-        <div class="comDiv">
-            <mat-card-header><mat-card-title>Comments ({{count}}): </mat-card-title></mat-card-header>
-            <p *ngFor="let comment of comments">
-                <b>USERNAME &nbsp;</b> - &nbsp; Posted <i>{{timeStamp}}</i><button mat-button color="accent">REPLY</button>
-                <br>{{comment}}&nbsp;
-            </p>
-        </div>
-    </mat-card>
+      <form [formGroup]="addCommentsFormGroup" (ngSubmit)="addCom()">
+        <textarea formControlName="comment" cols="70" rows="5" placeholder="Enter your comments here and click the submit button when finished."></textarea><br>
+        <button mat-button color="accent">+ SUBMIT COMMENT</button>
+      </form>
+    </div>
+    <div class="comDiv">
+      <mat-card-header><mat-card-title>Comments ({{count}}): </mat-card-title></mat-card-header>
+      <p *ngFor="let comment of comments">
+        <b>USERNAME &nbsp;</b> - &nbsp; Posted <i>{{timeStamp}}</i><button mat-button color="accent">REPLY</button>
+        <br>{{comment}}&nbsp;
+      </p>
+    </div>
+  </mat-card>
 </main>
