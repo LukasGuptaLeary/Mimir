@@ -1,24 +1,10 @@
-<mat-drawer-container>
-  <mat-drawer #drawer>
-      <aside>
+<main>
+    <mat-card>
+        <button mat-button routerLink="../ingredients"><mat-icon>arrow_left</mat-icon> Ingredients</button>
+        <button mat-button routerLink="../review">Review <mat-icon>arrow_right</mat-icon></button>
+    </mat-card>
+    <div class="web-view">
+        <iframe *ngIf="recipeUrl" [src]="recipeUrl" allowfullscreen></iframe>
+    </div>
+</main>
 
-      </aside>
-  </mat-drawer>
-  <mat-drawer-content>
-      <header>
-          <mat-toolbar><button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button> Mimir</mat-toolbar>
-      </header>
-
-      <div class="web-view">
-          <iframe [src]="recipeUrl" allowfullscreen></iframe>
-      </div>
-
-      <footer>
-          <mat-toolbar>
-              <button mat-button color="accent"><mat-icon>home</mat-icon></button>
-              <button mat-button color="accent"><mat-icon>person</mat-icon></button>
-              <button mat-button color="accent"><mat-icon>star</mat-icon></button>
-          </mat-toolbar>
-      </footer>
-  </mat-drawer-content>
-</mat-drawer-container>

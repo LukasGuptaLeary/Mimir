@@ -1,29 +1,20 @@
-<mat-drawer-container>
-  <mat-drawer #drawer>
-      <aside>
+<main>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Ingredients</mat-card-title>
+        </mat-card-header>
 
-      </aside>
-  </mat-drawer>
-  <mat-drawer-content>
-      <header>
-          <mat-toolbar><button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button> Mimir</mat-toolbar>
-      </header>
-      
-      <div>
-        <h2>
-          Ingredients
-        </h2>
-        <ul class="ingredient-list">
-            <li *ngFor="let ingredient of ingredients">{{ ingredient }}</li>
-        </ul>
-      </div>
+        <mat-card-content>
+            <mat-selection-list>
+                <mat-list-option *ngFor="let ingredient of ingredientList">
+                    {{ ingredient }}
+                </mat-list-option>
+            </mat-selection-list>
+        </mat-card-content>
 
-      <footer>
-          <mat-toolbar>
-              <button mat-button color="accent"><mat-icon>home</mat-icon></button>
-              <button mat-button color="accent"><mat-icon>person</mat-icon></button>
-              <button mat-button color="accent"><mat-icon>star</mat-icon></button>
-          </mat-toolbar>
-      </footer>
-  </mat-drawer-content>
-</mat-drawer-container>
+        <mat-card-actions>
+            <button mat-button routerLink="../instructions">Instructions <mat-icon>arrow_right</mat-icon></button>
+        </mat-card-actions>
+    </mat-card>
+</main>
+
