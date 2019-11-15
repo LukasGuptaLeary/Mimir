@@ -10,7 +10,7 @@ module.exports = {
     server: './server.ts'
   },
   externals: {
-    '.backend/portal/dist/server/main': 'require("./server/main")'
+    './backend/portal/dist/server/main': 'require("./server/main")'
   },
   target: 'node',
   resolve: { extensions: ['.ts', '.js'] },
