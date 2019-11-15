@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {RecipeModel} from '../../../shared/models/recipe.model';
+import {RecipeSearchModel} from '../../../shared/models/recipe-search.model';
+import {RecipeService} from '../../../shared/recipe.service';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-ingredients',
@@ -7,9 +13,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IngredientsComponent implements OnInit {
 
-  constructor() { }
+  recipeSearch$ = new BehaviorSubject<RecipeSearchModel>(null);
+  recipe$: Observable<RecipeModel>;
+  ingredientList: string[];
 
-  ngOnInit() {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private service: RecipeService
+  ) {}
+
+ngOnInit() {
+  this.recipe$ = this.route.paramMap.pipe(
+    switchMap((params: ParamMap) =>
+      this.service.getRecipe(params.get('r')))
+  );
+
+  this.recipe$.subscribe(recipe => 
+    this.ingredientList = recipe.ingredients.map(
+      ingredient => ingredient.text
+    )
+  );
+}
 
 }
