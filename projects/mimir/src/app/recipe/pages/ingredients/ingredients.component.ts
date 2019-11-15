@@ -4,7 +4,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {RecipeModel} from '../../../shared/models/recipe.model';
 import {RecipeSearchModel} from '../../../shared/models/recipe-search.model';
 import {RecipeService} from '../../../shared/recipe.service';
-import {switchMap} from 'rxjs/operators';
+import {switchMap, sampleTime} from 'rxjs/operators';
 
 @Component({
   selector: 'app-ingredients',
@@ -15,7 +15,7 @@ export class IngredientsComponent implements OnInit {
 
   recipeSearch$ = new BehaviorSubject<RecipeSearchModel>(null);
   recipe$: Observable<RecipeModel>;
-  ingredientList: string[];
+  ingredientList = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -28,11 +28,21 @@ ngOnInit() {
       this.service.getRecipe(params.get('r')))
   );
 
-  this.recipe$.subscribe(recipe => 
-    this.ingredientList = recipe.ingredients.map(
-      ingredient => ingredient.text
+  this.recipe$.subscribe(recipe =>
+    recipe.ingredients.forEach(ingredient =>
+      this.ingredientList.push(
+        { item: ingredient.text, qty: ingredient.weight }
+      )
     )
-  );
+  )
+
+  if (this.ingredientList.length < 1){
+    this.ingredientList.push({item: 'No Ingredients Added. Select A Recipe', qty: 'N/A'});
+  }
 }
+
+}
+
+class IngredientList {
 
 }

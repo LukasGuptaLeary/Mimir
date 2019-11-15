@@ -10,12 +10,21 @@
       </header>
       
       <div>
-        <h2>
-          Ingredients
-        </h2>
-        <ul class="ingredient-list">
+        <table class="ingredient-list">
+          <tr>
+            <th class="not-rightmost-column">Qty.</th>
+            <th class="rightmost-column">Item</th>
+          </tr>
+          <ng-container *ngFor="let ingredient of ingredientList">
+            <tr>
+              <td class="not-rightmost-column">{{ingredient.qty}}</td>
+              <td class="rightmost-column">{{ingredient.item}}</td>
+            </tr>
+          </ng-container>
+        </table>
+        <!-- <ul class="ingredient-list">
             <li *ngFor="let ingredient of ingredients">{{ ingredient }}</li>
-        </ul>
+        </ul> -->
       </div>
 
       <footer>

@@ -23,11 +23,29 @@ footer mat-toolbar {
 
 .ingredient-list {
   list-style-type: circle;
-  border: 2px solid #65ff66;
 }
 
-li {
+table {
+  background-color: #00d831;
+  color: #003f99;
+}
+
+td {
   padding: 5px 10px;
   background-color: #fff;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #0069cb;
+  color: #003f99;
+}
+
+td:hover {
+  background-color: #65ff66;
+  color: #000000;
+}
+
+.not-rightmost-column {
+  white-space: nowrap;
+}
+
+.rightmost-column {
+  width: 99%;
 }
