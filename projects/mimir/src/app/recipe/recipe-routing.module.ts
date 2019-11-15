@@ -8,7 +8,7 @@ import { InstructionsComponent } from './pages/instructions/instructions.compone
 
 const routes: Routes = [
   {
-    path: ':r', component: RecipeComponent, children: [
+    path: '', component: RecipeComponent, children: [
       { path: 'ingredients', component: IngredientsComponent },
       { path: 'instructions', component: InstructionsComponent },
       { path: 'review', component: ReviewComponent },

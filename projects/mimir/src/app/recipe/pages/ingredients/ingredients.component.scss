@@ -1,0 +1,33 @@
+mat-drawer-container, mat-drawer-content, mat-drawer {
+  height: 100%;
+}
+
+mat-drawer-container {
+  background-color: rgba(0,0,0,0);
+}
+
+mat-drawer-content, mat-drawer {
+  display: grid;
+}
+
+mat-drawer-content {
+  grid-template-rows: auto 1fr auto;
+}
+
+footer mat-toolbar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.ingredient-list {
+  list-style-type: circle;
+  border: 2px solid #65ff66;
+}
+
+li {
+  padding: 5px 10px;
+  background-color: #EEEEEE;
+  border: 1px solid #DDDDDD;
+}

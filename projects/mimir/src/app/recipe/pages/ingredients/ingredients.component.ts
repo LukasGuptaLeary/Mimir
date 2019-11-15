@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IngredientsComponent implements OnInit {
 
-  constructor() { }
+  ingredients: string[];
+
+  constructor() {
+    this.ingredients = ['salt', 'chicken', 'steak'];
+  }
 
   ngOnInit() {
   }
