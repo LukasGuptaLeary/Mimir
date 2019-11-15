@@ -61,6 +61,10 @@ form {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
 }
 
+mat-expansion-panel {
+  background-image: url("../../../../assets/cuttingBoard.jpg");
+}
+
 @include media-breakpoint-down(sm) {
   form {
     grid-template-columns: 1fr;

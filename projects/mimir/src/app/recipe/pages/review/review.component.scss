@@ -1,0 +1,37 @@
+mat-radio-button{
+  margin-right: 2%;
+  margin-left: 1%;
+}
+
+.rateConfirm{
+  padding-top: 1%;
+  margin-left: 1%;
+  color: green;
+  height: 20px;
+}
+
+.comDiv{
+  padding-top: 0.5%;
+  margin-top: 3%;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.comDiv p{
+  padding: 1% 1% 1% 1%;
+}
+
+.review{
+  margin-top: 2.5%;
+}
+
+textarea{
+  resize: none;
+  margin-left: 1%;
+}
+
+mat-radio-group {
+  mat-radio-button:first-of-type {
+    margin-left: 16px;
+  }
+}
