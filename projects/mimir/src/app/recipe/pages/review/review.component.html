@@ -1,1 +1,45 @@
-<p>review works!</p>
+<main>
+    <mat-card>
+
+        <div class="review">
+            <mat-card-header>
+                <mat-card-title>Rate this recipe!</mat-card-title>
+                <mat-card-subtitle>Help us recommend recipes for you by providing your feedback below.</mat-card-subtitle>
+            </mat-card-header>
+
+
+            <form [formGroup]="addRatingsFormGroup" (ngSubmit)="addRating()">
+                <mat-radio-group formControlName="rating">
+                    <mat-radio-button class="star" name="rating" value="1 Star" >1 Star</mat-radio-button>
+                    <mat-radio-button class="star" name="rating" value="2 Stars" >2 Stars</mat-radio-button>
+                    <mat-radio-button class="star" name="rating" value="3 Stars" >3 Stars</mat-radio-button>
+                    <mat-radio-button class="star" name="rating" value="4 Stars" >4 Stars</mat-radio-button>
+                    <mat-radio-button class="star" name="rating" value="5 Stars" >5 Stars</mat-radio-button>
+                </mat-radio-group><br><br>
+                <button mat-button color="accent">+ SUBMIT RATING</button>
+            </form>
+            <div class="rateConfirm">
+                <p *ngFor="let rating of ratings">You gave this recipe {{rating}}.</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <mat-card-header>
+                <mat-card-title>Leave a comment!</mat-card-title>
+                <mat-card-subtitle>Feel free to share your cooking experience with everyone.</mat-card-subtitle>
+            </mat-card-header>
+
+            <form [formGroup]="addCommentsFormGroup" (ngSubmit)="addCom()">
+                <textarea formControlName="comment" cols="70" rows="5" placeholder="Enter your comments here and click the submit button when finished."></textarea><br>
+                <button mat-button color="accent">+ SUBMIT COMMENT</button>
+            </form>
+        </div>
+        <div class="comDiv">
+            <mat-card-header><mat-card-title>Comments ({{count}}): </mat-card-title></mat-card-header>
+            <p *ngFor="let comment of comments">
+                <b>USERNAME &nbsp;</b> - &nbsp; Posted <i>{{timeStamp}}</i><button mat-button color="accent">REPLY</button>
+                <br>{{comment}}&nbsp;
+            </p>
+        </div>
+    </mat-card>
+</main>
