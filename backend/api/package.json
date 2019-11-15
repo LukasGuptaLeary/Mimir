@@ -4,7 +4,7 @@
   "description": "",
   "main": "api.js",
   "scripts": {
-    "build": "rm -rf dist && tsc -p api.tsconfig.json && cp package.json dist/package.json && cd dist && npm install",
+    "build": "rm -rf dist && tsc -p api.tsconfig.json && cp package.json dist/package.json && cp -avr secret dist/secret && cd dist && npm install",
     "deploy": "cp api.yaml dist/api.yaml && cp .gcloudignore dist/.gcloudignore && cd dist && gcloud app deploy -q --project mimir-cd0bd api.yaml",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node api.js"

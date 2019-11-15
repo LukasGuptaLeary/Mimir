@@ -20,6 +20,13 @@ main {
 
   mat-card {
     background-image: url("../../../../assets/cuttingBoard.jpg");
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
   }
+
+
 
 }
