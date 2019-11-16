@@ -1,6 +1,6 @@
 export interface PreferencesModel {
     diet: string;
     health: string[];
-    mealType: string[];
+    dishType: string[];
     cuisineType: string[];
 }

@@ -19,10 +19,10 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Meal Type</mat-label>
-        <mat-select formControlName="mealType" multiple>
-          <mat-option *ngFor="let meals of mealTypes" [value]="meals.value">
-            {{meals.displayname}}
+        <mat-label>Dish Type</mat-label>
+        <mat-select formControlName="dishType" multiple>
+          <mat-option *ngFor="let dish of dishTypes" [value]="dish.value">
+            {{dish.displayname}}
           </mat-option>
         </mat-select>
       </mat-form-field>

@@ -38,8 +38,10 @@
         <mat-card-subtitle>Feel free to share your cooking experience with everyone.</mat-card-subtitle>
       </mat-card-header>
 
-      <form [formGroup]="addCommentsFormGroup" (ngSubmit)="addCom()">
-        <textarea formControlName="comment" cols="70" rows="5" placeholder="Enter your comments here and click the submit button when finished."></textarea><br>
+      <form class="comment-form" [formGroup]="addCommentsFormGroup" (ngSubmit)="addCom()">
+        <mat-form-field appearance="fill">
+          <textarea formControlName="comment" matInput placeholder="Enter your comments here and click the submit button when finished."></textarea><br>
+        </mat-form-field>
         <button mat-button color="accent">+ SUBMIT COMMENT</button>
       </form>
     </div>

@@ -28,7 +28,6 @@ export class TokenInterceptor implements HttpInterceptor {
     return this.afAuth.idToken.pipe(
       take(1),
       switchMap(token => next.handle(this.addToken(req, token))),
-      tap(console.log),
       catchError(error => {
         if (error instanceof HttpErrorResponse) {
           switch ((error as HttpErrorResponse).status) {

@@ -64,9 +64,9 @@ mat-radio-button{
   margin-top: 2.5%;
 }
 
-textarea{
-  resize: none;
-  margin-left: 1%;
+.comment-form {
+  display: flex;
+  flex-direction: column;
 }
 
 [type=radio]{

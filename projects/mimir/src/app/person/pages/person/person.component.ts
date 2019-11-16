@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { PreferenceModel } from '../../../shared/models/preference.model';
 import {PreferencesModel} from '../../../shared/models/preferences.model';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-person',
@@ -13,7 +15,7 @@ export class PersonComponent implements OnInit {
   preferencesFormGroup = new FormGroup({
     diet: new FormControl(null),
     health: new FormControl(null),
-    mealType: new FormControl(null),
+    dishType: new FormControl(null),
     cuisineType: new FormControl(null)
   });
 
@@ -57,11 +59,7 @@ export class PersonComponent implements OnInit {
     {value: 'wheat-free', displayname: 'Wheat-Free'}
    ];
 
-  mealTypes: PreferenceModel[] = [
-    {value: 'breakfast', displayname: 'Breakfast'},
-    {value: 'lunch', displayname: 'Lunch'},
-    {value: 'dinner', displayname: 'Dinner'},
-    {value: 'snack', displayname: 'Snack'},
+  dishTypes: PreferenceModel[] = [
     {value: 'bread', displayname: 'Bread'},
     {value: 'cereals', displayname: 'Cereals'},
     {value: 'condiments-and-sauces', displayname: 'Condiments and Sauces'},
@@ -98,10 +96,23 @@ export class PersonComponent implements OnInit {
     {value: 'south-east-asian', displayname: 'South East Asian'}
   ];
 
-  constructor() { }
+  constructor(
+      private auth: AngularFireAuth,
+      private db: AngularFirestore
+  ) { }
 
   ngOnInit() {
-    this.preferencesFormGroup.valueChanges.subscribe(console.log);
+    this.db.collection('user').doc(this.auth.auth.currentUser.uid).get().subscribe(user => {
+      if (user.exists) {
+        this.preferencesFormGroup.patchValue(user.data().preferences);
+      }
+    });
+
+    this.preferencesFormGroup.valueChanges.subscribe(preferences => {
+      this.db.collection('user').doc(this.auth.auth.currentUser.uid).set({
+        preferences
+      }, {merge: true});
+    });
   }
 
   get preferences() {
