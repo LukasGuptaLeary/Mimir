@@ -14,7 +14,7 @@
     "build:client-and-server-bundles": "ng build --prod --stats-json && ng run mimir:server:production",
     "serve:portal": "cd backend/portal/dist && npm start",
     "serve:api": "cd backend/api/dist && npm start",
-    "build:portal": "npm run build:client-and-server-bundles && npm run compile:server && cd backend/portal && npm run build",
+    "build:portal": "npm run build:client-and-server-bundles && npx cap sync && npm run compile:server && cd backend/portal && npm run build",
     "build:api": "cd backend/api && npm run build",
     "deploy:portal": "cd backend/portal && npm run deploy",
     "deploy:api": "cd backend/api && npm run deploy",
@@ -38,6 +38,9 @@
     "@angular/pwa": "^0.803.12",
     "@angular/router": "~8.2.11",
     "@angular/service-worker": "~8.2.11",
+    "@capacitor/android": "^1.3.0",
+    "@capacitor/angular": "^1.0.0",
+    "@capacitor/core": "latest",
     "@ngmodule/material-carousel": "^0.5.1",
     "@nguniversal/express-engine": "^8.1.1",
     "@nguniversal/module-map-ngfactory-loader": "8.1.1",
@@ -79,6 +82,7 @@
     "firebase-tools": "^6.10.0",
     "fuzzy": "^0.1.3",
     "inquirer": "^6.2.2",
-    "inquirer-autocomplete-prompt": "^1.0.1"
+    "inquirer-autocomplete-prompt": "^1.0.1",
+    "@capacitor/cli": "latest"
   }
 }

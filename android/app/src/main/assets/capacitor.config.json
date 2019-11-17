@@ -1,0 +1,8 @@
+{
+  "appId": "com.mimir.app",
+  "appName": "mimir",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "backend/portal/dist/browser",
+  "cordova": {}
+}

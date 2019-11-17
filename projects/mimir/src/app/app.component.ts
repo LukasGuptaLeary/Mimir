@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {SwUpdate} from '@angular/service-worker';
 import {isPlatformBrowser} from '@angular/common';
+import { Plugins } from '@capacitor/core';
 
 @Component({
   selector: 'app-root',

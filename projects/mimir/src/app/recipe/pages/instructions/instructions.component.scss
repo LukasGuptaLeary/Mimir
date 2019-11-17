@@ -1,7 +1,8 @@
 main {
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr;
   grid-gap: 24px;
   padding: 24px;
+  min-height: 100%;
 }
 
 .web-view {
