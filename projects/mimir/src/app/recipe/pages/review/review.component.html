@@ -39,7 +39,7 @@
       </mat-card-header>
 
       <form class="comment-form" [formGroup]="addCommentsFormGroup" (ngSubmit)="addCom()">
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
           <textarea formControlName="comment" matInput placeholder="Enter your comments here and click the submit button when finished."></textarea><br>
         </mat-form-field>
         <button mat-button color="accent">+ SUBMIT COMMENT</button>
