@@ -13,7 +13,7 @@ export interface Diet {
 
 export interface Health{
   value: string;
-  viewValue: string
+  viewValue: string;
 }
 
 export interface MealType {
