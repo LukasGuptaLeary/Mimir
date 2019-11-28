@@ -13,12 +13,11 @@ export class RecipeService {
       private http: HttpClient
   ) { }
 
-  recipeSearch(q: string) {
-    const params = new HttpParams().set('q', q);
-    return this.http.get<RecipeSearchModel>('https://api-dot-mimir-cd0bd.appspot.com/recipe', {params}).pipe(tap(console.log));
+  recipeSearch() {
+    return this.http.get<RecipeSearchModel>('https://api-dot-mimir-cd0bd.appspot.com/recipe');
   }
 
   getRecipe(r: string) {
-    return this.http.get<RecipeModel>('https://api-dot-mimir-cd0bd.appspot.com/recipe/' + r).pipe(tap(console.log));
+    return this.http.get<RecipeModel>('https://api-dot-mimir-cd0bd.appspot.com/recipe/' + r);
   }
 }

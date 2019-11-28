@@ -1,6 +1,8 @@
 import * as express from 'express';
 import {accessControl} from './functions/core/accessControl';
 import {routes} from './routes/routes';
+import {useFirebaseApp} from './functions/core/firebaseApp';
+import {useAuthorization} from './functions/core/authorization';
 
 // Express server
 const app = express();
@@ -12,6 +14,9 @@ app.enable('trust proxy');
 app.use(accessControl);
 
 app.use(express.json());
+
+app.use(useFirebaseApp);
+app.use(useAuthorization);
 
 // Routes/APIs
 app.use(routes);

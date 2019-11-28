@@ -1,4 +1,4 @@
-import {IngredientModel} from './ingredientModel';
+import {IngredientModel} from './ingredient.model';
 
 export interface RecipeModel {
     uri: string;

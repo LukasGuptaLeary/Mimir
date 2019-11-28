@@ -1,0 +1,41 @@
+<main>
+  <mat-card>
+
+    <form [formGroup]="preferencesFormGroup">
+      <mat-form-field>
+        <mat-label>Diet</mat-label>
+        <mat-select formControlName="diet">
+          <mat-option *ngFor="let diet of diets" [value]="diet.value">
+            {{diet.displayname}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Health</mat-label>
+        <mat-select formControlName="health" multiple>
+          <mat-option *ngFor="let healthy of healths" [value]="healthy.value">{{healthy.displayname}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Dish Type</mat-label>
+        <mat-select formControlName="dishType" multiple>
+          <mat-option *ngFor="let dish of dishTypes" [value]="dish.value">
+            {{dish.displayname}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Cuisine Type</mat-label>
+        <mat-select formControlName="cuisineType" multiple>
+          <mat-option *ngFor="let cuisines of cuisineTypes" [value]="cuisines.value">
+            {{cuisines.displayname}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+  </mat-card>
+</main>

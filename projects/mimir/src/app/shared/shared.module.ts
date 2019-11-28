@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecipeService } from './recipe.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { MaterialModulesModule } from '../material-modules/material-modules.module';
+import {TokenInterceptor} from '../token.intercepter';
+import {AuthGuard} from '../auth.guard';
 
 
 
@@ -17,7 +19,9 @@ import { MaterialModulesModule } from '../material-modules/material-modules.modu
     MaterialModulesModule
   ],
   providers: [
-      RecipeService
+      RecipeService,
+      { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+      AuthGuard
   ],
   exports: [
     FormsModule,
