@@ -26,15 +26,12 @@ export class ReviewComponent implements OnInit {
   ngOnInit() {
   }
 
-  addRating() {
+  submitFeedback() {
     const rating = this.addRatingsFormGroup.get('rating');
     if (rating.value) {
       this.ratings.pop();
       this.ratings.push(rating.value);
     }
-  }
-
-  addCom() {
     const comment = this.addCommentsFormGroup.get('comment');
     if (comment.value) {
       this.comments.push(comment.value);
