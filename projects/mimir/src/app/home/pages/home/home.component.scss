@@ -35,9 +35,13 @@ form {
   grid-gap: 24px;
 
   mat-card {
+    display: flex;
+    flex-direction: column;
+
     mat-card-content {
       //height: 198px;
       //padding-top: 12px;
+      flex: 1;
       overflow: hidden;
     }
     mat-card-header {
@@ -52,6 +56,17 @@ form {
         justify-content: space-between;
         margin: 0;
         width: 100%;
+      }
+    }
+    mat-card-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+      grid-gap: 8px;
+
+      ::ng-deep .mat-button-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }

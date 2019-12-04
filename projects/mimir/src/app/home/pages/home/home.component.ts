@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
 
     if (ingredient.value) {
       if (!this.ingredients.find(i => i === ingredient.value)) {
-        this.ingredients.push(ingredient.value);
+        this.ingredients.push(ingredient.value.toString().trim().toLowerCase());
       }
       ingredient.reset();
     }
@@ -96,11 +96,8 @@ export class HomeComponent implements OnInit {
     }, {merge: true}).then(() => [
 
     ]);
-
-// getfavorite on init and map to recipe model
-// only can favorite a recipe once,mat-icon conditional
-// toggle favorite isFavorite     
-
-
+    // getfavorite on init and map to recipe model
+    // only can favorite a recipe once,mat-icon conditional
+    // toggle favorite isFavorite
   }
 }
