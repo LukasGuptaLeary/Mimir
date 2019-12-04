@@ -4,6 +4,8 @@ main {
   grid-template-rows: auto 1fr;
   grid-gap: 24px;
   padding: 24px;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 form {
@@ -33,6 +35,7 @@ form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 24px;
+  overflow-y: auto;
 
   mat-card {
     display: flex;
