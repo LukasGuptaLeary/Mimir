@@ -3,12 +3,30 @@
         <h1>Welcome to<br>Mimir</h1>
     </div>
     <div class='welcome-cell'>
-        <mat-carousel [hideIndicators]="false" proportion="100">
-            <mat-carousel-slide [hideOverlay]="true" *ngFor="let item of items">
+        <mat-carousel [autoplay]= "false" [hideIndicators]="false" proportion="100">
+            <mat-carousel-slide [hideOverlay]="true">
+              <mat-card>First select your ingredients</mat-card>
                 <div class="welcome-cell">
-                    <div class="carousel-item-circle">&#xf19c;</div>
+                    <div>
+                    <img src="../../../../assets/images/Recipe.gif" alt="animated"></div>
                 </div>
             </mat-carousel-slide>
+          <mat-carousel-slide [hideOverlay]="true">
+            <mat-card>Choose your recipe and start to cooking!</mat-card>
+            <div class="welcome-cell">
+              <div>
+                <img src="../../../../assets/images/Instructions.gif" alt="animated"></div>
+            </div>
+          </mat-carousel-slide>
+
+          <mat-carousel-slide [hideOverlay]="true" >
+            <mat-card>Review the recipe to build a better experience!</mat-card>
+            <div class="welcome-cell">
+              <div>
+                <img src="../../../../assets/images/Review.gif" alt="animated"></div>
+            </div>
+          </mat-carousel-slide>
+
         </mat-carousel>
     </div>
     <div class='welcome-cell'>

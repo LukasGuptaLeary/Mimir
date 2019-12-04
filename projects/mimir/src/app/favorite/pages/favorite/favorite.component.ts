@@ -35,12 +35,7 @@ export class FavoriteComponent implements OnInit {
 
   }
 
-  addFavorite(recipe: RecipeModel) {
-    const recipe = this.addRecipeFormGroup.get('recipe');
 
-   
-    
-  }
 
   getRecipeIDFromURI(uri: string) {
     const uriArray = uri.split('_');
