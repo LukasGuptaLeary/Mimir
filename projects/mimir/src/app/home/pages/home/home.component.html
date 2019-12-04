@@ -46,13 +46,8 @@
                 </p>
             </mat-card-content>
             <mat-card-actions>
-                <button [routerLink]="['/user', 'recipe', getRecipeIDFromURI(recipe.uri), 'ingredients']" mat-button>START RECIPE</button>
-<<<<<<< HEAD
-                <button  (click)="addFavorite(recipe)" mat-button>Favorite <mat-icon>star</mat-icon></button>
-=======
-                <button><mat-icon>start</mat-icon></button>
-
->>>>>>> Alvaro_Alanis
+                <button color="primary" [routerLink]="['/user', 'recipe', getRecipeIDFromURI(recipe.uri), 'ingredients']" mat-button>START RECIPE</button>
+                <button color="accent" (click)="addFavorite(recipe)" mat-button>Favorite <mat-icon>star</mat-icon></button>
             </mat-card-actions>
         </mat-card>
     </div>
