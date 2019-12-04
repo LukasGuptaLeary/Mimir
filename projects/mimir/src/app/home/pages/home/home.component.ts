@@ -7,6 +7,8 @@ import {filter, map} from 'rxjs/operators';
 import {RecipeSearchModel} from '../../../shared/models/recipe-search.model';
 import {RecipeModel} from '../../../shared/models/recipe.model';
 import {RecipeService} from '../../../shared/recipe.service';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home',
@@ -24,10 +26,21 @@ export class HomeComponent implements OnInit {
   });
 
   constructor(
-      private recipeService: RecipeService
+      private recipeService: RecipeService,
+      private auth: AngularFireAuth,
+      private db: AngularFirestore
   ) { }
 
   ngOnInit() {
+    this.db.collection('user').doc(this.auth.auth.currentUser.uid).get().subscribe(user => {
+      if (user.exists) {
+        this.ingredients = user.data().cuttingboard;
+
+        if (this.ingredients) {
+          this.getRecipes();
+        }
+      }
+    });
     this.recipes$ = this.recipeSearch$.pipe(
         filter(value => !(!value)),
         map(recipeSearch => {
@@ -41,22 +54,30 @@ export class HomeComponent implements OnInit {
 
     if (ingredient.value) {
       if (!this.ingredients.find(i => i === ingredient.value)) {
-        this.ingredients.push(ingredient.value);
+        this.ingredients.push(ingredient.value.toString().trim().toLowerCase());
       }
       ingredient.reset();
     }
 
-    this.getRecipes();
+    this.db.collection('user').doc(this.auth.auth.currentUser.uid).set({
+      cuttingboard: this.ingredients
+    }, {merge: true}).then(() => {
+      this.getRecipes();
+    });
   }
 
   deleteIngredient(ingredient: string) {
     this.ingredients = this.ingredients.filter(i => i !== ingredient);
 
-    this.getRecipes();
+    this.db.collection('user').doc(this.auth.auth.currentUser.uid).set({
+      cuttingboard: this.ingredients
+    }, {merge: true}).then(() => {
+      this.getRecipes();
+    });
   }
 
   getRecipes() {
-    this.recipeService.recipeSearch(this.ingredients.join(',')).subscribe(recipeSearch => {
+    this.recipeService.recipeSearch().subscribe(recipeSearch => {
       this.recipeSearch$.next(recipeSearch);
     });
   }
@@ -64,5 +85,19 @@ export class HomeComponent implements OnInit {
   getRecipeIDFromURI(uri: string) {
     const uriArray = uri.split('_');
     return uriArray[uriArray.length - 1];
+  }
+
+  addFavorite(recipe: RecipeModel) {
+    this.db.collection('user')
+      .doc(this.auth.auth.currentUser.uid)
+      .collection('favorites')
+      .doc(this.getRecipeIDFromURI(recipe.uri)).set({
+      recipe
+    }, {merge: true}).then(() => [
+
+    ]);
+    // getfavorite on init and map to recipe model
+    // only can favorite a recipe once,mat-icon conditional
+    // toggle favorite isFavorite
   }
 }

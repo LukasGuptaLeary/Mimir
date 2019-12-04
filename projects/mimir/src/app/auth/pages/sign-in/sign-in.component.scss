@@ -2,11 +2,18 @@ form {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  padding: 24px;
-  min-height: 400px;
 }
 
 mat-tab-group {
   height: 100%;
+  border-radius: 0 0 4px 4px;
+}
+
+main {
+  min-height: 100%;
+}
+
+.auth-form {
+  min-height: 400px;
+  padding: 24px;
 }

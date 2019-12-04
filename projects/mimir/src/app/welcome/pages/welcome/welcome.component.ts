@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  items = [1, 2, 3];
+
 
   constructor() { }
 

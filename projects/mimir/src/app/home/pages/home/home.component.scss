@@ -4,6 +4,8 @@ main {
   grid-template-rows: auto 1fr;
   grid-gap: 24px;
   padding: 24px;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 form {
@@ -33,11 +35,16 @@ form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 24px;
+  overflow-y: auto;
 
   mat-card {
+    display: flex;
+    flex-direction: column;
+
     mat-card-content {
       //height: 198px;
       //padding-top: 12px;
+      flex: 1;
       overflow: hidden;
     }
     mat-card-header {
@@ -54,6 +61,17 @@ form {
         width: 100%;
       }
     }
+    mat-card-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+      grid-gap: 8px;
+
+      ::ng-deep .mat-button-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
 }
 
@@ -61,6 +79,9 @@ form {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
 }
 
+mat-expansion-panel {
+  background-image: url("../../../../assets/cuttingBoard.jpg");
+}
 
 @include media-breakpoint-down(sm) {
   form {

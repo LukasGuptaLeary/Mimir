@@ -10,6 +10,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule} from '@angular/fire';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { RouterModule } from '@angular/router';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     SharedModule,
     RouterModule
   ],
