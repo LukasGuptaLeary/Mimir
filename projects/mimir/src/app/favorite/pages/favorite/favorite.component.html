@@ -1,0 +1,21 @@
+<main>
+  <div class="grid">
+  <mat-card *ngFor="let recipe of recipes$ | async">
+    <img mat-card-image [src]="recipe.image" alt="Recipe Photo">
+    <mat-card-header>
+      <mat-card-title>{{recipe.label}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+
+      <button [routerLink]="['/user', 'recipe', getRecipeIDFromURI(recipe.uri), 'ingredients']" mat-button>START RECIPE</button>
+      <button color="accent" (click)="addFavorite(recipe)" mat-button>Favorite <mat-icon>star</mat-icon></button>
+
+    </mat-card-actions>
+  </mat-card>
+  </div>
+</main>
