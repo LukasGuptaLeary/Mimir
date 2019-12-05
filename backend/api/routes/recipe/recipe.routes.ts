@@ -52,30 +52,33 @@ recipeRouter.get('/:r', async (req, res, next) => {
 export async function getParams(user) {
 
     const { preferences, cuttingboard } = user;
-    const { diet, dishType, cuisineType, health } = preferences;
 
     let params = {
         app_id: EDAMAM_APP_ID,
         app_key: EDAMAM_API_KEY,
-        q: cuttingboard.join(','),
+        q: cuttingboard ? cuttingboard.join(',') : null,
         from: 0,
         to: 20
     } as any;
 
-    if (!(!diet) && diet !== '') {
-        params = { ...params, diet };
-    }
+    if (preferences) {
+        const { diet, dishType, cuisineType, health } = preferences;
 
-    if (!(!dishType) && dishType.length > 0) {
-        params = { ...params, dishType };
-    }
+        if (!(!diet) && diet !== '') {
+            params = { ...params, diet };
+        }
 
-    if (!(!cuisineType) && cuisineType.length > 0) {
-        params = { ...params, cuisineType };
-    }
+        if (!(!dishType) && dishType.length > 0) {
+            params = { ...params, dishType };
+        }
 
-    if (!(!health) && health.length > 0) {
-        params = { ...params, health };
+        if (!(!cuisineType) && cuisineType.length > 0) {
+            params = { ...params, cuisineType };
+        }
+
+        if (!(!health) && health.length > 0) {
+            params = { ...params, health };
+        }
     }
 
     return params;
