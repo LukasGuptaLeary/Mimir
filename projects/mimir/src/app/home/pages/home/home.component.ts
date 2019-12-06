@@ -93,9 +93,9 @@ export class HomeComponent implements OnInit {
       .collection('favorites')
       .doc(this.getRecipeIDFromURI(recipe.uri)).set({
       recipe
-    }, {merge: true}).then(() => [
+    }, {merge: true}).then(() => {
 
-    ]);
+    });
     // getfavorite on init and map to recipe model
     // only can favorite a recipe once,mat-icon conditional
     // toggle favorite isFavorite

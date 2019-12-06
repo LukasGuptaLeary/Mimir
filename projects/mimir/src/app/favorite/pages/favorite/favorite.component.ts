@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
-
-import {filter, map} from 'rxjs/operators';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {AngularFirestore} from '@angular/fire/firestore';
+import {Observable} from 'rxjs';
 import {RecipeModel} from '../../../shared/models/recipe.model';
-import {RecipeService} from '../../../shared/recipe.service';
-import {RecipeSearchModel} from '../../../shared/models/recipe-search.model';
+import {filter, map, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-favorite',
@@ -14,14 +13,27 @@ import {RecipeSearchModel} from '../../../shared/models/recipe-search.model';
 export class FavoriteComponent implements OnInit {
 
 
-  recipe = [];
+  recipes$: Observable<RecipeModel[]>;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(
+      private auth: AngularFireAuth,
+      private db: AngularFirestore
+  ) { }
 
   ngOnInit() {
-
+    this.recipes$ = this.db
+      .collection('user')
+        .doc(this.auth.auth.currentUser.uid)
+        .collection('favorites')
+        .get().pipe(
+            map(docs => docs.docs.map(doc => doc.data().recipe)),
+            tap(console.log)
+        );
   }
 
-
+  getRecipeIDFromURI(uri: string) {
+    const uriArray = uri.split('_');
+    return uriArray[uriArray.length - 1];
+  }
 
 }
