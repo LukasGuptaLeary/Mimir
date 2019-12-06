@@ -12,6 +12,7 @@
       </mat-card-content>
       <mat-card-actions>
         <button color="primary" [routerLink]="['/user', 'recipe', getRecipeIDFromURI(recipe.uri), 'ingredients']" mat-button>START RECIPE</button>
+        <button color="warn" (click)="removeFavorite(recipe)" mat-button>Remove</button>
       </mat-card-actions>
     </mat-card>
   </div>

@@ -4,6 +4,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {RecipeModel} from '../../../shared/models/recipe.model';
 import {filter, map, tap} from 'rxjs/operators';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-favorite',
@@ -17,23 +18,40 @@ export class FavoriteComponent implements OnInit {
 
   constructor(
       private auth: AngularFireAuth,
-      private db: AngularFirestore
+      private db: AngularFirestore,
+      private snackbar: MatSnackBar
   ) { }
 
   ngOnInit() {
-    this.recipes$ = this.db
-      .collection('user')
-        .doc(this.auth.auth.currentUser.uid)
-        .collection('favorites')
-        .get().pipe(
-            map(docs => docs.docs.map(doc => doc.data().recipe)),
-            tap(console.log)
-        );
+    this.getRecipes();
   }
 
   getRecipeIDFromURI(uri: string) {
     const uriArray = uri.split('_');
     return uriArray[uriArray.length - 1];
+  }
+
+  removeFavorite(recipe) {
+    this.db.collection('user')
+      .doc(this.auth.auth.currentUser.uid)
+      .collection('favorites')
+      .doc(this.getRecipeIDFromURI(recipe.uri))
+      .delete().then(() => {
+        this.getRecipes();
+        const snack = this.snackbar.open(recipe.label + ' has been removed from your favorites.', null, {
+          duration: 8000
+        });
+      });
+  }
+
+  getRecipes() {
+    this.recipes$ = this.db
+      .collection('user')
+      .doc(this.auth.auth.currentUser.uid)
+      .collection('favorites')
+      .get().pipe(
+          map(docs => docs.docs.map(doc => doc.data().recipe))
+      );
   }
 
 }

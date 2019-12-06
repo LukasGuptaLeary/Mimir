@@ -9,6 +9,8 @@ import {RecipeModel} from '../../../shared/models/recipe.model';
 import {RecipeService} from '../../../shared/recipe.service';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {MatSnackBar} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +30,9 @@ export class HomeComponent implements OnInit {
   constructor(
       private recipeService: RecipeService,
       private auth: AngularFireAuth,
-      private db: AngularFirestore
+      private db: AngularFirestore,
+      private snackbar: MatSnackBar,
+      private router: Router
   ) { }
 
   ngOnInit() {
@@ -94,10 +98,13 @@ export class HomeComponent implements OnInit {
       .doc(this.getRecipeIDFromURI(recipe.uri)).set({
       recipe
     }, {merge: true}).then(() => {
+      const snack = this.snackbar.open(recipe.label + ' has been added to your favorites.', 'Favorites', {
+        duration: 8000
+      });
 
+      snack.onAction().subscribe(() => {
+        this.router.navigate(['/user', 'favorite']);
+      });
     });
-    // getfavorite on init and map to recipe model
-    // only can favorite a recipe once,mat-icon conditional
-    // toggle favorite isFavorite
   }
 }
