@@ -24,7 +24,6 @@ export class InstructionsComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) {}
 
-
   ngOnInit() {
     this.recipe$ = this.route.parent.paramMap.pipe(
       switchMap((params: ParamMap) =>

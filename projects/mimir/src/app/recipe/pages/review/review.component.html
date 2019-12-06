@@ -13,15 +13,15 @@
 
       <div class="stars">
         <form [formGroup]="addRatingsFormGroup" (ngSubmit)="submitFeedback()">
-          <input class="star star-5" id="star-5" type="radio" name="rating" value="5 stars" formControlName="rating"/>
+          <input class="star star-5" id="star-5" type="radio" name="rating" value="5" formControlName="rating"/>
           <label class="star star-5" for="star-5"></label>
-          <input class="star star-4" id="star-4" type="radio" name="rating" value="4 stars" formControlName="rating"/>
+          <input class="star star-4" id="star-4" type="radio" name="rating" value="4" formControlName="rating"/>
           <label class="star star-4" for="star-4"></label>
-          <input class="star star-3" id="star-3" type="radio" name="rating" value="3 stars" formControlName="rating"/>
+          <input class="star star-3" id="star-3" type="radio" name="rating" value="3" formControlName="rating"/>
           <label class="star star-3" for="star-3"></label>
-          <input class="star star-2" id="star-2" type="radio" name="rating" value="2 stars" formControlName="rating"/>
+          <input class="star star-2" id="star-2" type="radio" name="rating" value="2" formControlName="rating"/>
           <label class="star star-2" for="star-2"></label>
-          <input class="star star-1" id="star-1" type="radio" name="rating" value="1 star" formControlName="rating"/>
+          <input class="star star-1" id="star-1" type="radio" name="rating" value="1" formControlName="rating"/>
           <label class="star star-1" for="star-1"></label>
         </form>
       </div>
@@ -41,10 +41,18 @@
       </form>
     </div>
 
-    <div class="comDiv">
-      <mat-card-header><mat-card-title>Comments ({{count}}): </mat-card-title></mat-card-header><br>
+    <div class="comDiv" *ngIf="comments">
+      <mat-card-header><mat-card-title>Comments ({{comments.length}}): </mat-card-title></mat-card-header><br>
       <div class="comment" *ngFor="let comment of comments">
-        <b>USERNAME &nbsp;</b> - &nbsp; Posted <i>{{timeStamp}}</i><br> <br><p>{{comment}}</p><p *ngFor="let rating of ratings"><i>Rated {{rating}}.</i></p><br></div>
+        <p>
+          Posted <i>{{comment.timestamp.toDate() | date}}</i>
+          <br>
+          <br>
+          {{comment.comment}}
+          <br>
+          <i>Rated {{comment.rating}}.</i>
+        </p>
+      </div>
     </div>
   </mat-card>
 </main>
